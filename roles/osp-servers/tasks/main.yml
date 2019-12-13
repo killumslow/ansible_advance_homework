@@ -6,7 +6,7 @@
     cloud: ospcloud
     name: "{{ item.name }}"
     flavor: "{{ item.flavor }}"
-    key_name: "{{ key_name }}"
+    key_name: "{{ item.key_name }}"
     nics:
     - net-name: int_network
     floating_ip_pools:
