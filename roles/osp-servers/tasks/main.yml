@@ -20,8 +20,8 @@
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /tmp/internal.repo
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
-    async: 900
-    poll: 0
+  async: 900
+  poll: 0
   loop: "{{ osp_servers }}"
 
 - name: Add floating IP to Servers
