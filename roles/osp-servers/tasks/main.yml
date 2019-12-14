@@ -9,8 +9,8 @@
     key_name: "{{ item.key_name }}"
     nics:
     - net-name: int_network
-#    floating_ip_pools:
-#    - ext_network
+    floating_ip_pools:
+    - ext_network
     image: "{{ item.image }}"
     meta: "{{ item.meta }}"
     security_groups: "{{ item.security_group }}"
@@ -23,6 +23,7 @@
   async: 900
   poll: 0
   loop: "{{ osp_servers }}"
+  register: r_floating_ips
 
 - name: Add floating IP to Servers
   os_floating_ip:
@@ -34,7 +35,6 @@
     wait: true
     timeout: 180
   loop: "{{ osp_servers }}"
-  register: r_floating_ips
 
 - name: print ips
   debug:
