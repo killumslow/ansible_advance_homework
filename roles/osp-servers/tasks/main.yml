@@ -23,7 +23,6 @@
   async: 900
   poll: 0
   loop: "{{ osp_servers }}"
-  register: r_floating_ips
 
 - name: Add floating IP to Servers
   os_floating_ip:
@@ -35,6 +34,7 @@
     wait: true
     timeout: 180
   loop: "{{ osp_servers }}"
+  register: r_floating_ips
 
 - name: print ips
   debug:
