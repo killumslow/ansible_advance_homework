@@ -36,6 +36,10 @@
   loop: "{{ osp_servers }}"
   register: r_floating_ips
 
+- name: print ips
+  debug:
+    var: "{{ r_floating_ips }}"
+
 - name: Wait for server to be available
   wait_for:
     host: "{{ r_floating_ips.floating_ip_address }}"
