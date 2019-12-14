@@ -9,8 +9,8 @@
     key_name: "{{ item.key_name }}"
     nics:
     - net-name: int_network
-    floating_ip_pools:
-    - ext_network
+#    floating_ip_pools:
+#    - ext_network
     image: "{{ item.image }}"
     meta: "{{ item.meta }}"
     security_groups: "{{ item.security_group }}"
@@ -20,8 +20,8 @@
       cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
       curl -o /tmp/internal.repo
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
-  async: 900
-  poll: 0
+#  async: 900
+#  poll: 0
   loop: "{{ osp_servers }}"
 
 - name: Add floating IP to Servers
@@ -38,7 +38,7 @@
 
 - name: print ips
   debug:
-    var: r_floating_ips
+    var: r_floating_ips.results
 
 - name: Wait for server to be available
   wait_for:
