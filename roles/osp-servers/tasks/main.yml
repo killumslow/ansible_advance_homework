@@ -38,7 +38,7 @@
 
 - name: print ips
   debug:
-    var: "{{ r_floating_ips }}"
+    var: r_floating_ips
 
 - name: Wait for server to be available
   wait_for:
