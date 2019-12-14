@@ -42,9 +42,9 @@
 
 - name: Wait for server to be available
   wait_for:
-    host: "{{ r_floating_ips.floating_ip_address }}"
+    host: "{{ r_floating_ips.floating_ip.floating_ip_address }}"
     port: 22
     search_regex: OpenSSH
     timeout: 600
-  loop: "{{ r_floating_ips.results }}"
+#  loop: "{{ r_floating_ips.results }}"
   delegate_to: "{{ inventory_hostname }}"
