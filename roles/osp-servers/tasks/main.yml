@@ -12,7 +12,7 @@
 #    floating_ip_pools:
 #    - ext_network
     image: "{{ item.image }}"
-    meta: "groups{{ item.meta.group }},deployment_name={{ item.meta.deployment_name }}"
+    meta: "{{ item.meta }}"
     security_groups: "{{ item.security_group }}"
     userdata: |
       #!/bin/bash
