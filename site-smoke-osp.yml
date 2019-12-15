@@ -10,12 +10,14 @@
       - osp.smoke
   - name: checking contents of openstack_info
     debug:
-      var: openstack_info.ansible_facts.openstack_servers.vm_state
+      var: item.public_v4
+    loop: "{{ openstack_info.ansible_facts.openstack_servers }}"
 
   - name: Curl website
     uri:
-      url: "http://{{ openstack_info.ansible_facts.openstack_servers.public_v4 }}"
+      url: "http://{{ item.public_v4 }}"
     register: webpage
+    loop: "{{ openstack_info.ansible_facts.openstack_servers }}"
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
