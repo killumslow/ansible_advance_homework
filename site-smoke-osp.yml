@@ -10,7 +10,7 @@
       - osp.smoke
   - name: checking contents of openstack_info
     debug:
-      var: openstack_info.ansible_facts.openstack_servers.public_v4
+      var: openstack_info.ansible_facts.openstack_servers.vm_state
 
   - name: Curl website
     uri:
