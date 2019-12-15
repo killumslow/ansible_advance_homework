@@ -38,7 +38,8 @@
 
 - name: print ips
   debug:
-    var: r_floating_ips.results
+    var: "{{ item }}"
+  loop: "{{ r_floating_ips.results }}"
 
 - name: Wait for server to be available
   wait_for:
