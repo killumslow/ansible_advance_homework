@@ -10,11 +10,11 @@
       - osp.smoke
   - name: checking contents of openstack_info
     debug:
-      var: openstack_info
+      var: openstack_info.openstack_servers
 
   - name: Curl website
     uri:
-      url: "http://{{ openstack_info }}"
+      url: "http://{{ openstack_info.openstack_servers }}"
     register: webpage
 
   - name: Fail if 'Ansible has done its job' is not in the page content
