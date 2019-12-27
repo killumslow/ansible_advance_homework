@@ -5,9 +5,9 @@
    cloud: ospcloud
   register: openstack_info
 
-- name: debug
-  debug:
-    var: openstack_info.ansible_facts.openstack_servers.id
+# - name: debug
+#   debug:
+#     var: openstack_info.ansible_facts.openstack_servers.id
 
 - name: Deleting openstack servers
   os_server:
