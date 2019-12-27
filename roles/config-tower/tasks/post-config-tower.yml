@@ -16,7 +16,7 @@
   lineinfile:
     path: /root/.ssh/openstack.pem
     state: absent
-    regexp: '*ANSIBLE*'
+    regexp: '^*ANSIBLE*'
 
 - name: changing perms of pem file back to default
   file:
