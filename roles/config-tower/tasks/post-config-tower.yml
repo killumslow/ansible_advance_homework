@@ -9,7 +9,7 @@
 
 - name: Temp changing perms of pem file
   file:
-    path: /root/.ssh/.openstack.pem
+    path: /root/.ssh/openstack.pem
     mode: 0700
 
 - name: Removing ansible managed blocks
@@ -20,7 +20,7 @@
 
 - name: changing perms of pem file back to default
   file:
-    path: /root/.ssh/.openstack.pem
+    path: /root/.ssh/openstack.pem
     mode: 0400
 
 - name: Machine Credentail to connect to workstation using openstack.pub
