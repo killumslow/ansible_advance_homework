@@ -14,7 +14,7 @@
       var: item.public_v4
     loop: "{{ openstack_info.ansible_facts.openstack_servers }}"
 
-  - name: Curl website
+  - name: Check website
     uri:
       url: "http://{{ item.public_v4 }}"
     register: webpage
