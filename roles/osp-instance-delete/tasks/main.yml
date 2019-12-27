@@ -3,8 +3,12 @@
 - name: OpenStack servers
   os_server_facts:
    cloud: ospcloud
-   server: 'frontend,apps,appdbs'
+#   server: 'frontend,apps,appdbs'
   register: openstack_info
+
+- name: debug
+  debug:
+    var: openstack_info.ansible_facts.openstack_servers.id
 
 - name: Deleting openstack servers
   os_server:
