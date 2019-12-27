@@ -5,8 +5,6 @@
    cloud: ospcloud
    server: 'frontend'
   register: openstack_info
-  tags:
-    - osp.smoke
 
 - name: Deleting openstack servers
   os_server:
