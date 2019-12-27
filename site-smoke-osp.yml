@@ -4,10 +4,11 @@
   - name: OpenStack servers
     os_server_facts:
      cloud: ospcloud
-     server: 'frontend'
+#     server: 'frontend'
     register: openstack_info
     tags:
       - osp.smoke
+
   - name: checking contents of openstack_info
     debug:
       var: item.public_v4

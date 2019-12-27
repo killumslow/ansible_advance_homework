@@ -1,27 +1,27 @@
 - hosts: frontends
   gather_facts: false
   tasks:
-  - name: AWS servers
-    ec2_instance_info:
-#     cloud: ospcloud
-     server: 'frontend'
-    register: ec2_instance_info
-    tags:
-      - aws.smoke
-
-  - name: checking contents of ec2_instance_info
-    debug:
-      var: item.public_v4
-    loop: "{{ ec2_instance_info.ansible_facts.ec2_servers }}"
-
-  - name: Use Uri module for writing smoke test.
-    uri:
-      url: "http://{{ item.public_v4 }}"
-    register: webpage
-    loop: "{{ ec2_instance_info.ansible_facts.ec2_servers }}"
-
-  - name: Fail if 'Ansible has done its job' is not in the page content
-    fail:
-    when: "'Ansible has done its job' not in webpage.results[0].content"
-    tags:
-      - aws.smoke
+#   - name: AWS servers
+#     ec2_instance_info:
+#      cloud: ospcloud
+#      server: 'frontend'
+#     register: ec2_instance_info
+#     tags:
+#       - aws.smoke
+#
+#   - name: checking contents of ec2_instance_info
+#     debug:
+#       var: item.public_v4
+#     loop: "{{ ec2_instance_info.ansible_facts.ec2_servers }}"
+#
+#   - name: Use Uri module for writing smoke test.
+#     uri:
+#       url: "http://{{ item.public_v4 }}"
+#     register: webpage
+#     loop: "{{ ec2_instance_info.ansible_facts.ec2_servers }}"
+#
+#   - name: Fail if 'Ansible has done its job' is not in the page content
+#     fail:
+#     when: "'Ansible has done its job' not in webpage.results[0].content"
+#     tags:
+#       - aws.smoke
