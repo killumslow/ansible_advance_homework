@@ -3,7 +3,6 @@
 - name: OpenStack servers
   os_server_facts:
    cloud: ospcloud
-#   server: 'frontend,apps,appdbs'
   register: openstack_info
 
 - name: debug
