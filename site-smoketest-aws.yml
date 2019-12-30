@@ -17,6 +17,7 @@
 #   - name: Use Uri module for writing smoke test.
 #     uri:
 #       url: "http://{{ item.public_v4 }}"
+#       return_content: yes
 #     register: webpage
 #     loop: "{{ ec2_instance_info.ansible_facts.ec2_servers }}"
 #
