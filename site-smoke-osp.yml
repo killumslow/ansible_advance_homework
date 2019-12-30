@@ -17,6 +17,7 @@
   - name: Check website
     uri:
       url: "http://{{ item.public_v4 }}"
+      return_content: yes
     register: webpage
     loop: "{{ openstack_info.ansible_facts.openstack_servers }}"
 
